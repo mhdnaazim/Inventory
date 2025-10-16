@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
+}
+
+.edit-cat-main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.edit-inputs {
+    width: 400px;
+    min-height: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-inputs p {
+    font-size: 26px;
+    font-weight: 600;
+    color: #008CFF;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.edit-inputs input {
+    width: 80%;
+    height: 45px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding-left: 15px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.edit-inputs input:focus {
+    border-color: #008CFF;
+    box-shadow: 0 0 6px rgba(0, 140, 255, 0.4);
+}
+
+.save-btn {
+    width: 80%;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    background: #008CFF;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Add Product Select Field css */
+.edit-inputs select,
+.edit-inputs select option {
+    width: 80%;
+    height: 45px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding-left: 15px;
+    font-size: 16px;
+    outline: none;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.edit-inputs select option{
+    height: 35px;
+}
+
+.edit-inputs select:focus {
+    border-color: #008CFF;
+    box-shadow: 0 0 6px rgba(0, 140, 255, 0.4);
+}
+
+/* Remove up/down arrows in number input fields (for all browsers) */
+.no-arrow::-webkit-inner-spin-button,
+.no-arrow::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-arrow {
+  -moz-appearance: textfield; /* Firefox */
+}
+

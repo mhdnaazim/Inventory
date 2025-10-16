@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.categories-container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f4f6f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.categories-container h2 {
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.cat-table {
+    width: 80%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cat-table thead {
+    background-color: #008CFF;
+    color: #fff;
+}
+
+.cat-table th,
+.cat-table td {
+    text-align: left;
+    padding: 15px 20px;
+}
+
+.cat-table th {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.cat-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.cat-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cat-table tbody tr:hover {
+    background-color: #e6f0ff;
+}
+
+.action-col .table-images {
+    display: flex;
+    gap: 15px;
+}
+
+.table-images img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.categories-container button {
+    background-color: #ffffff;
+    color: #008CFF;
+    height: 55px;
+    width: 220px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 140, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.categories-container button:hover {
+    box-shadow: 0 6px 18px rgba(0, 140, 255, 0.25);
+    border: 1px solid #008CFF;
+}

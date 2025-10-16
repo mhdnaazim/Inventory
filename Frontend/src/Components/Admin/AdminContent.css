@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
+}
+
+.admin-content-container {
+    height: 100vh;
+    width: 100%;
+    background-color: #f4f8fc;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding-top: 150px;
+    gap: 40px;
+}
+
+.manage-cards {
+    background-color: #ffffff;
+    height: 90px;
+    width: 320px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 140, 255, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.manage-cards:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 140, 255, 0.25);
+    border: 1px solid #008CFF;
+}
+
+.manage-cards p {
+    color: #008CFF;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
