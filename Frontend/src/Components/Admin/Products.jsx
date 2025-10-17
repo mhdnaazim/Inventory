@@ -40,7 +40,7 @@ const Products = () => {
         fetchProducts()
       }
     } catch (error) {
-      alert("Deletion Error")
+      alert("Deletion Error");
     }
   }
 

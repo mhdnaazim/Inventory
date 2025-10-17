@@ -13,6 +13,9 @@ const AdminContent = () => {
         <div onClick={() => navigate("/ProductsList")} className="manage-cards">
             <p>Manage Products</p>
         </div>
+        <div onClick={() => navigate("/UsersList")} className="manage-cards">
+            <p>Manage Users</p>
+        </div>
       </div>
     </>
   )

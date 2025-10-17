@@ -12,7 +12,7 @@ const AdminNav = () => {
         </div>
         <div className="admin-nav-container-right">
             <ul>
-                <li onClick={() => navigate("/")}>HOME</li>
+                <li onClick={() => navigate("/AdminHome")}>HOME</li>
                 <li>LOGOUT</li>
             </ul>
         </div>

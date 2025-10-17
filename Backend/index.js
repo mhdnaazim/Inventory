@@ -197,6 +197,36 @@ app.delete("/delproduct/:id", (req, res) => {
 })
 
 
+// Users API
+
+// Fetch Users
+app.get("/users", (req, res) => {
+    const sql = "SELECT * FROM users"
+
+    db.query(sql, (error, result) => {
+        if (error) {
+            res.status(500).json("Serverside Error");
+        } else {
+            res.status(200).json(result, "OK");
+        }
+    })
+})
+
+// Delete Users
+app.get("/delusers/:id", (req, res) => {
+    const id = req.params.id
+    const sql = "DELETE * FROM users WHERE id = ?"
+
+    db.query(sql, id, (error, result) => {
+        if (error) {
+            res.status(500).json("Serverside Error");
+        } else {
+            res.status(200).json("Deletion Success")
+        }
+    })
+})
+
+
 const port = 8000
 app.listen(port, () => {
     console.log(`Connected to Port ${port}`);

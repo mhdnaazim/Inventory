@@ -48,7 +48,7 @@ const EditProduct = () => {
             console.log(response);
             if (response.status == 200) {
                 alert("Product Updated Successfully");
-                navigate("/ProductsList")
+                navigate("/ProductsList");
             } else {
                 alert("Error Updating User");
             }
