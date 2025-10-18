@@ -22,9 +22,9 @@ const App = () => {
           <Route path="/AdminHome" element={<AdminHome />} />
           <Route path="/UsersList" element={<Users />} />
           <Route path="/CategoryList" element={<Categories />} />
+          <Route path="/ProductsList" element={<Products />} />
           <Route path="/AddCategory" element={<AddCat />} />
           <Route path="/EditCategory/:id" element={<EditCat />} />
-          <Route path="/ProductsList" element={<Products />} />
           <Route path="/AddProduct" element={<AddProduct />} />
           <Route path="/EditProduct/:id" element={<EditProduct />} />
           <Route path="/Home" element={<UserHome />} />

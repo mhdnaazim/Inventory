@@ -212,13 +212,31 @@ app.get("/users", (req, res) => {
     })
 })
 
+// Add Users
+app.post("/user", (req,res) => {
+    const { email, number, password } = req.body;
+    const values = [ email, number, password ];
+    const sql = "INSERT INTO users (email, number, password) VALUES (?,?,?)"
+
+    db.query(sql, values, (req, res) => {
+        if (error) {
+            res.status(500).json("Serverside Error");
+        } else {
+            res.status(200).json(result)
+        }
+    })
+})
+
 // Delete Users
-app.get("/delusers/:id", (req, res) => {
+app.delete("/delusers/:id", (req, res) => {
     const id = req.params.id
-    const sql = "DELETE * FROM users WHERE id = ?"
+    console.log(id);
+    
+    const sql = "DELETE FROM users WHERE userid = ?"
 
     db.query(sql, id, (error, result) => {
         if (error) {
+            console.log(error);
             res.status(500).json("Serverside Error");
         } else {
             res.status(200).json("Deletion Success")

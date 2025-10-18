@@ -14,7 +14,7 @@ const EditProduct = () => {
         price: ""
     })
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     const handleFetchProduct = async () => {
         try {
@@ -27,7 +27,7 @@ const EditProduct = () => {
                 price: response.data[0].price
             });
             console.log(name);
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -53,7 +53,6 @@ const EditProduct = () => {
                 alert("Error Updating User");
             }
         } catch (error) {
-
         }
     }
 

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignUp.css'
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+  const [ user, setUser ] = useState({
+    name: "",
+    email: "",
+    number: "",
+    password: ""
+  });
   return (
     <>
       <div className="register-container">
@@ -10,6 +16,7 @@ const SignUp = () => {
                 <h2>SignUp</h2>
                 <input type="text" placeholder="Username" />
                 <input type="email" placeholder="Email" />
+                <input type="text" placeholder="Number" />
                 <input type="password" placeholder="Password" />
                 <input type="password" placeholder="Confirm Password" />
                 <button>SignUp</button>
