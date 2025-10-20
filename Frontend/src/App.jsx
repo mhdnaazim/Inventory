@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AdminHome from "./Components/Admin/AdminHome";
 import Categories from "./Components/Admin/Categories";
 import AddCat from "./Components/Admin/AddCat";
@@ -16,21 +18,34 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<SignUp />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/AdminHome" element={<AdminHome />} />
-          <Route path="/UsersList" element={<Users />} />
-          <Route path="/CategoryList" element={<Categories />} />
-          <Route path="/ProductsList" element={<Products />} />
-          <Route path="/AddCategory" element={<AddCat />} />
-          <Route path="/EditCategory/:id" element={<EditCat />} />
-          <Route path="/AddProduct" element={<AddProduct />} />
-          <Route path="/EditProduct/:id" element={<EditProduct />} />
-          <Route path="/Home" element={<UserHome />} />
+      <Routes>
+        {/* User Routes  */}
+        <Route path="/" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<UserHome />} />
 
-        </Routes>
-      </BrowserRouter>
+        {/* Admin Routes  */}
+        <Route path="/adminhome" element={<AdminHome />} />
+        <Route path="/userslist" element={<Users />} />
+        <Route path="/categorylist" element={<Categories />} />
+        <Route path="/addcategory" element={<AddCat />} />
+        <Route path="/editcategory/:id" element={<EditCat />} />
+        <Route path="/productslist" element={<Products />} />
+        <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/editproduct/:id" element={<EditProduct />} />
+      </Routes>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={1700}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        draggable
+        pauseOnHover={false}
+        theme="light"
+      />
+    </BrowserRouter>
     </>
   )
 }

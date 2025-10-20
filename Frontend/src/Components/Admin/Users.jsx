@@ -42,6 +42,7 @@ const Users = () => {
           <thead>
             <tr>
               <th>Id</th>
+              <th>Name</th>
               <th>Email</th>
               <th>Number</th>
               <th>Password</th>
@@ -54,6 +55,7 @@ const Users = () => {
               return (
                 <tr>
                   <td>{item.userid}</td>
+                  <td>{item.name}</td>
                   <td>{item.email}</td>
                   <td>{item.number}</td>
                   <td>{item.password}</td>

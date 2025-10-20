@@ -207,31 +207,38 @@ app.get("/users", (req, res) => {
         if (error) {
             res.status(500).json("Serverside Error");
         } else {
-            res.status(200).json(result, "OK");
+            res.status(200).json(result);
         }
     })
 })
 
-// Add Users
-app.post("/user", (req,res) => {
-    const { email, number, password } = req.body;
-    const values = [ email, number, password ];
-    const sql = "INSERT INTO users (email, number, password) VALUES (?,?,?)"
+// Signup
+app.post("/addUser", (req, res) => {
+    const { name, email, number, password } = req.body;
+    const values = [name, email, number, password]
 
-    db.query(sql, values, (req, res) => {
-        if (error) {
-            res.status(500).json("Serverside Error");
-        } else {
-            res.status(200).json(result)
+    const checkSql = "SELECT * FROM users WHERE email = ?";
+    db.query(checkSql, [email], (err, result) => {
+        if (err) return res.status(500).json("Server error");
+
+        if (result.length > 0) {
+            return res.status(202).json("Email already registered");
         }
-    })
-})
+
+        const insertSql = "INSERT INTO users (name, email, number, password) VALUES (?, ?, ?, ?)";
+        db.query(insertSql, values, (error, result) => {
+            if (error) return res.status(500).json("Server error");
+
+            res.status(200).json("Registration successful");
+        });
+    });
+});
+
 
 // Delete Users
 app.delete("/delusers/:id", (req, res) => {
     const id = req.params.id
-    console.log(id);
-    
+
     const sql = "DELETE FROM users WHERE userid = ?"
 
     db.query(sql, id, (error, result) => {
@@ -239,10 +246,32 @@ app.delete("/delusers/:id", (req, res) => {
             console.log(error);
             res.status(500).json("Serverside Error");
         } else {
-            res.status(200).json("Deletion Success")
+            res.status(200).json({ message: "Deletion Success", result });
         }
     })
 })
+
+// Login
+app.post("/logUser", (req, res) => {
+    const { email, password } = req.body;
+
+    const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+    db.query(sql, [email, password], (err, result) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).json("Server error");
+        }
+
+        if (result.length > 0) {
+            // User found
+            res.status(200).json({ usertype: result[0].usertype });
+        } else {
+            // User not found
+            res.status(401).json({ message: "Invalid Email or Password" });
+        }
+    });
+});
+
 
 
 const port = 8000
