@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate()
-  const [users, setUsers] = useState([]);
   const [formData, setFromData] = useState({
     email: "",
     password: ""
