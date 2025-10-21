@@ -7,21 +7,20 @@ const UserNav = () => {
   return (
     <nav className="usernav-wrapper">
       <GlassSurface
-      width={900} 
-  height={70}
-  borderRadius={50}
-  displace={15}
-  distortionScale={-150}
-  redOffset={5}
-  greenOffset={15}
-  blueOffset={25}
-  brightness={60}
-  opacity={0.8}
-  mixBlendMode="screen"
->
+        width={900}
+        height={70}
+        borderRadius={50}
+        displace={15}
+        distortionScale={-150}
+        redOffset={5}
+        greenOffset={15}  
+        blueOffset={25}
+        brightness={60}
+        opacity={0.8}
+        mixBlendMode="screen"
+      >
         <div className="usernav-inner">
           <div className="brand">
-            <img src="/logo192.png" alt="logo" className="brand-logo" />
             <span className="brand-name">Inventory</span>
           </div>
 
@@ -32,7 +31,7 @@ const UserNav = () => {
           </ul>
 
           <div className="profile">
-            <img src={cart}/>
+            <img src={cart} />
           </div>
         </div>
       </GlassSurface>

@@ -38,7 +38,7 @@
 
 .brand-name {
   font-weight: 600;
-  color: white;
+  color: #000;
 }
 
 .nav-links {
@@ -51,7 +51,7 @@
 
 .nav-links a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: #000;
   font-weight: 500;
 }
 
@@ -63,12 +63,5 @@
 .profile img{
   height: 30px;
   width: 30px;
-}
-
-.avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
 }
