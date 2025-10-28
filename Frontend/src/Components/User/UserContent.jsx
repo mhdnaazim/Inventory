@@ -31,7 +31,8 @@ const UserContent = () => {
               <p>{item.name}</p>
               <h4>{item.category_name}</h4>
               <h4>Quantity: {item.quantity}</h4>
-              <h3>Rs.{item.price}</h3>
+              <h3>Rs.{item.price}/-</h3>
+              <button>Add to Cart</button>
             </div>
           )
         })

@@ -13,26 +13,27 @@
     align-items: center;
     justify-content: start;
     position: relative;
-    padding-top: 250px;
+    padding: 200px 0;
 }
 
 .products-container{
-    background-color: red;
     height: min-content;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-items: center;
+    gap: 40px;
 }
 
 .product-card {
-    background-color: yellow;
+    background-color: #008CFF;
     height: 250px;
     width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
 }
 
 .product-card p {
@@ -48,4 +49,16 @@
 .product-card h3 {
     font-size: 20px;
     font-weight: 600;
+}
+
+.product-card button{
+    background-color: #fff;
+    color: #008CFF;
+    height: 30px;
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 15px;
+    cursor: pointer;
 }
