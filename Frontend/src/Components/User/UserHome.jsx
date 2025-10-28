@@ -1,5 +1,5 @@
 import React from 'react';
-import UserNav from '../ReactBits/UserNav';
+import UserNav from './UserNav';
 import UserContent from './UserContent';
 
 const UserHome = () => {

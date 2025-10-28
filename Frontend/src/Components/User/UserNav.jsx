@@ -1,9 +1,17 @@
 import React from 'react';
 import './UserNav.css';
-import GlassSurface from './Glass';
+import GlassSurface from '../ReactBits/Glass';
 import cart from '../../assets/cart.png'
+import { useNavigate } from 'react-router-dom';
 
 const UserNav = () => {
+
+  const navigate = useNavigate()
+
+  const handleCart = () => {
+    navigate("/cart")
+  }
+
   return (
     <nav className="usernav-wrapper">
       <GlassSurface
@@ -36,7 +44,7 @@ const UserNav = () => {
         </ul>
 
         <div className="profile">
-          <img src={cart} />
+          <img onClick={handleCart} src={cart} />
         </div>
       </div>
     </GlassSurface>

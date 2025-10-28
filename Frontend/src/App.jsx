@@ -13,6 +13,7 @@ import SignUp from "./Components/User/SignUp";
 import Login from "./Components/User/Login";
 import Users from "./Components/Admin/Users";
 import UserHome from "./Components/User/UserHome";
+import Cart from "./Components/User/Cart";
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
         <Route path="/" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<UserHome />} />
+        <Route path="/cart" element={<Cart />} />
+      
 
         {/* Admin Routes  */}
         <Route path="/adminhome" element={<AdminHome />} />
