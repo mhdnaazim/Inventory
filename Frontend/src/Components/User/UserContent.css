@@ -7,18 +7,45 @@
 
 .user-content-main {
     background: #fff;
-    height: 1500px;
+    height: min-content;
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: start;
     position: relative;
     padding-top: 250px;
 }
 
-.user-content-main h2 {
-    font-size: 50px;
-    font-weight: 700;
-    color: red;
+.products-container{
+    background-color: red;
+    height: min-content;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+}
+
+.product-card {
+    background-color: yellow;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card p {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.product-card h4 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    font-weight: 600;
 }
