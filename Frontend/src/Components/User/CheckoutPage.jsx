@@ -14,6 +14,7 @@ const CheckoutPage = () => {
         address: "",
         city: "",
         pincode: "",
+        
         paymentMethod: ""
     })
 
