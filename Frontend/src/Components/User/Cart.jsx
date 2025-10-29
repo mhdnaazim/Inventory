@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './Cart.css';
 import UserNav from './UserNav';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+
+    const navigate = useNavigate()
     const cartItem = JSON.parse(localStorage.getItem("Cart")) || [];
     const [cart, setCart] = useState(cartItem);
 
@@ -74,7 +77,7 @@ const Cart = () => {
                             <h3>Total: ₹{totalPrice}</h3>
                             <div className="cart-buttons">
                                 <button className="clear-btn" onClick={clearCart}>Clear Cart</button>
-                                <button className="checkout-btn">Proceed to Checkout</button>
+                                <button className="checkout-btn" onClick={() => navigate("/checkout")}>Proceed to Checkout</button>
                             </div>
                         </div>
                     </div>

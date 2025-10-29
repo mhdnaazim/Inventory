@@ -14,6 +14,7 @@ import Login from "./Components/User/Login";
 import Users from "./Components/Admin/Users";
 import UserHome from "./Components/User/UserHome";
 import Cart from "./Components/User/Cart";
+import CheckoutPage from "./Components/User/CheckoutPage";
 
 const App = () => {
   return (
@@ -25,7 +26,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<UserHome />} />
         <Route path="/cart" element={<Cart />} />
-      
+        <Route path="/checkout" element={<CheckoutPage />} />
 
         {/* Admin Routes  */}
         <Route path="/adminhome" element={<AdminHome />} />
