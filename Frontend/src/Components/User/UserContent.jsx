@@ -58,9 +58,9 @@ const UserContent = () => {
                   <h3>Rs.{item.price}</h3>
                   { inCart ? (
                     <div className="quantity-buttons">
-                      <button>+</button>
-                      <h6></h6>
-                      <button>-</button>
+                      <button className='quantity-btn'>+</button>
+                      <h6>5</h6>
+                      <button className='quantity-btn'>-</button>
                     </div>
                ) : (
                 <button onClick={() => {
