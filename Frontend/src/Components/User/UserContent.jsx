@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 const UserContent = () => {
 
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
     try {
@@ -14,14 +14,20 @@ const UserContent = () => {
     } catch (error) {
     }
   }
+  
+  const cartItem = JSON.parse(localStorage.getItem("Cart")) || [];
+  const [cart, setCart] = useState(cartItem);
+  console.log(cart);
 
   useEffect(() => {
     fetchProducts();
-    localStorage.setItem("cart", JSON.stringify(cart));
   }, []);
 
-  const cartItem = JSON.parse(localStorage.getItem("cart")) || [];
-  const [cart, setCart] = useState(cartItem);
+  useEffect(() => {
+    localStorage.setItem("Cart", JSON.stringify(cart));
+  }, [cart])
+
+  
 
   const addToCart = (item) => {
     const existingItem = cart.find(citem => citem.id === item.id);
@@ -33,12 +39,26 @@ const UserContent = () => {
     }
   }
 
-  const increaseQuantity = () => {
+  const increaseQuantity = (id) => {
+  setCart(prevCart =>
+    prevCart.map(citem =>
+      citem.id === id
+        ? { ...citem, quantity: citem.quantity + 1 }
+        : citem
+    )
+  );
+};
 
-  }
 
-  const decreaseQuantity  = () => {
-
+  const decreaseQuantity = (id) => {
+    setCart(prevCart =>
+      prevCart.map(citem =>
+          citem.id === id
+            ? { ...citem, quantity: citem.quantity - 1 }
+            : citem
+        )
+        .filter(citem => citem.quantity > 0)
+    );
   }
 
   return (
@@ -53,21 +73,22 @@ const UserContent = () => {
               return (
                 <div className="product-card">
                   <p>{item.name}</p>
-                  <h4>{item.category_name}</h4>
+                  <h4>Category: {item.category_name}</h4>
                   <h4>Quantity: {item.quantity}</h4>
-                  <h3>Rs.{item.price}</h3>
-                  { inCart ? (
+                  <h3>₹{item.price}</h3>
+                  {inCart ? (
                     <div className="quantity-buttons">
-                      <button className='quantity-btn'>+</button>
-                      <h6>5</h6>
-                      <button className='quantity-btn'>-</button>
+                      <button className='quantity-btn' onClick={() => decreaseQuantity(item.id)}>-</button>
+                      <h6>{inCart.quantity}</h6>
+                      <button className='quantity-btn' onClick={() => increaseQuantity(item.id)}>+</button>
+                      
                     </div>
-               ) : (
-                <button onClick={() => {
-                    addToCart(item);
-                    toast.success("Item Added Successfully")
-                  }}>Add to Cart</button>
-               ) }
+                  ) : (
+                    <button onClick={() => {
+                      addToCart(item);
+                      toast.success("Item Added Successfully")
+                    }}>Add to Cart</button>
+                  )}
                 </div>
               )
             })

@@ -38,7 +38,7 @@ const UserNav = () => {
         </div>
 
         <ul className="nav-links">
-          <li><a href="#dashboard">HOME</a></li>
+          <li><a href="#dashboard" onClick={() => navigate("/home")}>HOME</a></li>
           <li><a href="#products">PROFILE</a></li>
           <li><a href="#orders">ABOUT US</a></li>
         </ul>
