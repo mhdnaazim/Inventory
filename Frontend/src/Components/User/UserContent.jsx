@@ -14,7 +14,7 @@ const UserContent = () => {
     } catch (error) {
     }
   }
-  
+
   const cartItem = JSON.parse(localStorage.getItem("Cart")) || [];
   const [cart, setCart] = useState(cartItem);
   console.log(cart);
@@ -27,7 +27,7 @@ const UserContent = () => {
     localStorage.setItem("Cart", JSON.stringify(cart));
   }, [cart])
 
-  
+
 
   const addToCart = (item) => {
     const existingItem = cart.find(citem => citem.id === item.id);
@@ -40,26 +40,25 @@ const UserContent = () => {
   }
 
   const increaseQuantity = (id) => {
-  setCart(prevCart =>
-    prevCart.map(citem =>
-      citem.id === id
-        ? { ...citem, quantity: citem.quantity + 1 }
-        : citem
-    )
-  );
-};
-
+    setCart(prevCart =>
+      prevCart.map(citem =>
+        citem.id === id
+          ? { ...citem, quantity: citem.quantity + 1 }
+          : citem
+      )
+    );
+  };
 
   const decreaseQuantity = (id) => {
     setCart(prevCart =>
       prevCart.map(citem =>
-          citem.id === id
-            ? { ...citem, quantity: citem.quantity - 1 }
-            : citem
-        )
+        citem.id === id
+          ? { ...citem, quantity: citem.quantity - 1 }
+          : citem
+      )
         .filter(citem => citem.quantity > 0)
     );
-  }
+  };
 
   return (
     <>
@@ -81,7 +80,7 @@ const UserContent = () => {
                       <button className='quantity-btn' onClick={() => decreaseQuantity(item.id)}>-</button>
                       <h6>{inCart.quantity}</h6>
                       <button className='quantity-btn' onClick={() => increaseQuantity(item.id)}>+</button>
-                      
+
                     </div>
                   ) : (
                     <button onClick={() => {
