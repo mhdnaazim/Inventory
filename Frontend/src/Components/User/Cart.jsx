@@ -35,13 +35,22 @@ const Cart = () => {
                 .filter(citem => citem.quantity > 0)
         );
     };
+    
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    const handleCheckout = () => {
+        if(cart.length < 1){
+            toast.error("Add items in Cart")
+        }else{
+            navigate("/checkout", { state: { total: totalPrice } })
+        }
+    }
 
     const clearCart = () => {
         setCart([]);
         toast.info("Cart cleared");
     };
 
-    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
         <>
@@ -77,7 +86,7 @@ const Cart = () => {
                             <h3>Total: ₹{totalPrice}</h3>
                             <div className="cart-buttons">
                                 <button className="clear-btn" onClick={clearCart}>Clear Cart</button>
-                                <button className="checkout-btn" onClick={() => navigate("/checkout")}>Proceed to Checkout</button>
+                                <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
                             </div>
                         </div>
                     </div>
