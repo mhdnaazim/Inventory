@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import './CheckoutPage.css';
 import { toast } from 'react-toastify';
 import UserNav from './UserNav';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import Cart from './Cart';
+import axios from 'axios';
 
 const CheckoutPage = () => {
 
     const location = useLocation();
+    const navigate = useNavigate();
+    const {id} = useParams()
     const { total } = location.state || { total:0 }
 
     const [formData, setFormData] = useState({
@@ -14,7 +18,6 @@ const CheckoutPage = () => {
         address: "",
         city: "",
         pincode: "",
-        
         paymentMethod: ""
     })
 
@@ -23,9 +26,32 @@ const CheckoutPage = () => {
         setFormData((prev) => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        if(!formData.name || !formData.address || !formData.city || !formData.pincode || !formData.paymentMethod){
+            toast.error("Please fill all fields");
+            return;
+        }
+
+        const cart = JSON.parse(localStorage.getItem("Cart")) || [];
+
+        try {
+            const response = await axios.post("http://localhost:8000/update-qty", {
+                items: cart.map(item => ({
+                    id: item.id,
+                    quantity: item.quantity
+                }))
+            });
+            toast.success("Order Placed Succesffuly");
+            console.log(response);
+            
+            localStorage.removeItem("Cart");
+            navigate("/home")
+            
+
+        } catch (error) {
+        }
+
         console.log(formData, "Success");
-        toast.success("Order Placed Succesffuly")
     }
 
     return (
@@ -82,7 +108,16 @@ const CheckoutPage = () => {
                         </div>
                     </div>
 
-                    <button className="pay-btn" onClick={handleSubmit}>Confirm Payment</button>
+                    <button className="pay-btn" onClick={handleSubmit}>Confirm
+
+
+
+
+
+
+
+                        
+                    </button>
                 </div>
             </div>
 

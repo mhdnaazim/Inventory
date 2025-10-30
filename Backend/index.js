@@ -196,6 +196,22 @@ app.delete("/delproduct/:id", (req, res) => {
     })
 })
 
+// Update Quantity
+app.post("/update-qty", (req, res) => {
+    const id = req.params.id
+    const { quantity} = req.body
+    const values = [ id, quantity]
+    const sql =  "UPDATE products SET quantity = quantity - ? WHERE id = ? AND quantity >= ?";
+
+    db.query(sql, values, (error, result) => {
+        if(error) {
+            res.status(500).json("Serverside Error")
+        }else{
+            res.status(200).json(result)
+        }
+    })
+})
+
 
 // Users API
 
