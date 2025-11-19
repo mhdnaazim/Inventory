@@ -26,7 +26,6 @@ db.connect((error) => {
 
 
 // CATEGORIES API 
-
 //Fetch Categories
 app.get("/categories", (req, res) => {
     db.query("SELECT * FROM categories", (error, result) => {
@@ -214,7 +213,6 @@ app.post("/update-qty", (req, res) => {
 
 
 // Users API
-
 // Fetch Users
 app.get("/users", (req, res) => {
     const sql = "SELECT * FROM users"
@@ -244,7 +242,6 @@ app.post("/addUser", (req, res) => {
         const insertSql = "INSERT INTO users (name, email, number, password) VALUES (?, ?, ?, ?)";
         db.query(insertSql, values, (error, result) => {
             if (error) return res.status(500).json("Server error");
-
             res.status(200).json("Registration successful");
         });
     });
