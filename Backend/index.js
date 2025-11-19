@@ -267,14 +267,13 @@ app.delete("/delusers/:id", (req, res) => {
 // Login
 app.post("/logUser", (req, res) => {
     const { email, password } = req.body;
-
     const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+
     db.query(sql, [email, password], (err, result) => {
         if (err) {
             console.log(err);
             return res.status(500).json("Server error");
         }
-
         if (result.length > 0) {
             // User found
             res.status(200).json({ usertype: result[0].usertype });

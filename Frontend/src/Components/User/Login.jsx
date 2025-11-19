@@ -14,7 +14,6 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFromData((prev) => ({ ...prev, [name]: value }))
-
   }
 
   const handleLogin = async () => {
@@ -31,8 +30,6 @@ const Login = () => {
       toast.error("Invalid Email or Password");
     }
   };
-
-
 
   return (
     <>
